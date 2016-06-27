@@ -7,5 +7,15 @@ export default Ember.Route.extend({
 
 	setupController:function(controller, model){
 		controller.set('book',model);
+	},
+
+	actions:{
+		createBook(book){
+			var _this = this;
+			this.store.createRecord('book',book).save().then(function(book) {
+				_this.transitionTo('books.book',book);
+			});
+		}
 	}
+
 });
