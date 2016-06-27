@@ -1,0 +1,11 @@
+<h2>Add a new book</h2>
+
+<form {{action 'submit' on='submit'}}>
+	<div class="form-group">
+		<label for="">title</label>
+		{{input class="form-control" value=book.title}}
+	</div>
+	<button class="btn btn-primary" type="submit">
+		Add book
+	</button>
+</form>
