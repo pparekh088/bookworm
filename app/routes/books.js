@@ -18,18 +18,6 @@ export default Ember.Route.extend({
 			book.destroyRecord().then(function(){
 				_this.transitionTo('books');
 			});
-		}, 
-		createBook(book){
-			var _this = this;
-			book.save().then(function(book) {
-				_this.transitionTo('books.book',book);
-			});
-		},
-		updateBook(book){
-			var _this = this;
-			book.save().then(function(book) {
-				_this.transitionTo('books.book',book);
-			});
 		}
     }
 });
