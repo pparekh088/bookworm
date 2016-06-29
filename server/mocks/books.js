@@ -73,15 +73,36 @@ module.exports = function(app) {
     });
   });
 
-  booksRouter.put('/:id', function(req, res) {
+  booksRouter.patch('/:id', function(req, res) {
+    var bookAttrs = req.body.data.attributes;
+    var bookId = req.param('id');
+    books.forEach(function(item){
+       if(item.id === parseInt(bookId)){
+        item.title = bookAttrs.title;
+        item.author = bookAttrs.author;
+        item.description = bookAttrs.description;
+       }
+    });
+    res.set('Content-Type','application/vnd.api+json');
     res.send({
-      'books': {
-        id: req.params.id
+      data:{
+        type: 'books',
+        id: bookId,
+        attributes: bookAttrs
       }
     });
   });
 
   booksRouter.delete('/:id', function(req, res) {
+    var bookId = req.param('id');
+
+    for (var i = 0; books.length; i++) {
+      if(parseInt(bookId) === books[i].id){
+        books.splice(i,1);
+        break;
+      }
+    }
+    res.set('Content-Type','application/vnd.api+json');
     res.status(204).end();
   });
 
