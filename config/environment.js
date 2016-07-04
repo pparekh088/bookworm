@@ -18,6 +18,9 @@ module.exports = function(environment) {
       // when it is created
     }
   };
+   ENV['simple-auth'] = {
+    serverTokenRevocationEndpoint: '/revoke'
+   };
 
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
