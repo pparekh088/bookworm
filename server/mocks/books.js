@@ -18,7 +18,7 @@ module.exports = function(app) {
         title: "1984",
         description: "While 1984 has come and gone, Orwell's narrative is more timely than ever. 1984 presents a \"negative utopia\", that is at once a startling and haunting vision of the world — so powerful that it's completely convincing from start to finish. No one can deny the power of this novel, its hold on the imaginations of entire generations of readers, or the resiliency of its admonitions — a legacy that seems to grow, not lessen, with the passage of time.",
         author: 'George Orwell'
-    }]
+    }];
 
     booksRouter.get('/', function(req, res) {
         var data = [];
@@ -31,8 +31,8 @@ module.exports = function(app) {
                     description: item.description,
                     author: item.author
                 }
-            })
-        })
+            });
+        });
 
         res.set('Content-Type', 'application/vnd.api+json');
         res.send({

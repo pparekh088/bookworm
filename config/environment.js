@@ -18,8 +18,12 @@ module.exports = function(environment) {
       // when it is created
     }
   };
-   ENV['simple-auth'] = {
-    serverTokenRevocationEndpoint: '/revoke'
+  ENV['ember-simple-auth'] = {
+    authorizer: 'authorizer:token'
+  };
+  ENV['ember-simple-auth-token'] = {
+    serverTokenEndpoint: '/api/token/',
+    identificationField: 'email'
    };
 
   if (environment === 'development') {
